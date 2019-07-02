@@ -16,7 +16,7 @@ for i in range(T):
         elif j is " ":
             res.append(' ')
 
-    if noVowel == True:
+    if noVowel:
         print("No Vowel", end = "")
     else:
         for k in res:
