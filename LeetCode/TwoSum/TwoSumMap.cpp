@@ -1,14 +1,13 @@
 #include <iostream>
 #include <vector>
 #include <map>
-#include <utility>
 
 using namespace std;
 
 int main(void){
 	
 	vector<int> values;
-	map<int, int> frequencies; 
+	map<int, int> key; 
 	
 	int n, k, i;
 	
@@ -18,7 +17,7 @@ int main(void){
 	
 	for(i = 0; i < n; i++){
 		cin >> values[i];
-		frequencies[values[i]] = i;
+		key[values[i]] = i;
 	}
 	
 	int complement = 0;
@@ -26,10 +25,10 @@ int main(void){
 	for(i = 0; i < n; i++){
 		complement = k - values[i];
 		
-		bool exists = frequencies.count(complement);
+		bool exists = key.count(complement);
 		
 		if(exists){
-			cout << "[" << i << ", " << frequencies[complement]  << "]" << endl;
+			cout << "[" << i << ", " << key[complement]  << "]" << endl;
 			break; 
 		}
 	} 
