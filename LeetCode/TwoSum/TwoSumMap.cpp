@@ -27,11 +27,14 @@ int main(void){
 		
 		bool exists = key.count(complement);
 		
-		if(exists){
+		if(exists && key[complement] != i){
 			cout << "[" << i << ", " << key[complement]  << "]" << endl;
-			break; 
+			
+			return 0;
 		}
 	} 
+	
+	cout << "No solution" << endl;
 	
 	return 0;
 }
