@@ -1,19 +1,55 @@
 #include <iostream>
-#include <unordered_set>
+#include <set>
 
 using namespace std;
 
+
 int main(void){
 	
-	unordered_set<int> values;
+	set<int> numbers;
 	
-	values.insert(1);
-	values.insert(2);
-	values.insert(3);
+	int amount = 0;
 	
-	for(auto x : values){
-		cout << x << endl;
+	while(amount != -1){
+		cin >> amount;
+		numbers.insert(amount);
 	}
 	
+	set<int> numbersTwo;
+	
+	numbersTwo.insert(1);
+	numbersTwo.insert(2);
+	numbersTwo.insert(3);
+	
+	swap(numbers, numbersTwo);
+	
+	cout << endl << "Numbers" << endl;
+	
+	for(auto i : numbers){
+		cout << i << " ";
+	}
+	
+	cout << endl << "Numbers Two" << endl;
+	
+	for(auto i : numbersTwo){
+		cout << i << " ";
+	}
+	
+	cout << endl;
+	
+	numbers.erase(1);
+	
+	for(auto i : numbers){
+		cout << i << " ";
+	}
+	
+	numbers.erase(numbers.begin(), numbers.find(3));
+	
+	cout << endl;
+		
+	for(auto i : numbers){
+		cout << i << " ";
+	}
+
 	return 0;
 }
