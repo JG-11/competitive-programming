@@ -12,17 +12,17 @@ int main(void){
 	
 	cout << endl << genaro.first << " tiene " << genaro.second << endl;
 	
-	pair<string, int> liliana("Liliana Ponce", 19);
+	pair<string, int> juan("Juan Almaraz", 22);
 	
-	cout << endl << liliana.first << " tiene " << liliana.second << endl;
+	cout << endl << juan.first << " tiene " << juan.second << endl;
 	
-	genaro.swap(liliana);
+	genaro.swap(juan);
 	
 	cout << endl << "-----Swapped pairs-----" << endl;
 	
 	cout << endl << genaro.first << " " << genaro.second << endl;
 	
-	cout << endl << liliana.first << " " << liliana.second << endl;
+	cout << endl << juan.first << " " << juan.second << endl;
 	
 	cout << endl << "MAP" << endl;
 	

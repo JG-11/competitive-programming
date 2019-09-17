@@ -13,22 +13,16 @@ bool ok;
 
 vector<int> adj[LIMIT];
 
-void dfs(int actual)
-{
-	if(actual == dest)
-	{
+void dfs(int actual){
+	if(actual == dest){
 		ok = true;
 		return;
 	}
 	
-	if(!visited[actual])
-	{
-		for(int to : adj[actual])
-		{
-			if(!visited[to])
-			{
+	if(!visited[actual]){
+		for(int to : adj[actual]){
+			if(!visited[to]){
 				visited[to] = true;
-				
 				dfs(to);
 			}
 		}
@@ -60,13 +54,10 @@ int main(void){
 	
 	dfs(g);
 	
-	if(ok)
-	{
-		cout << "puedo visitar ciudad " << dest << " partiendo de " << g << endl;
-	}
-	else
-	{
-		cout << "no se pudo" << endl;
+	if(ok){
+		cout << "I can visit city " << dest << " starting from " << g << endl;
+	} else {
+		cout << "It could not" << endl;
 	}
 	
 	return 0;
