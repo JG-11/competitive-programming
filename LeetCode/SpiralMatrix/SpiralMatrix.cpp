@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 
+
 using namespace std;
 
 
@@ -44,13 +45,9 @@ int main(void){
 	
 	bool seen[rows][columns];
 	
-	int i, j;
+	int i;
 	
-	for(i = 0; i < rows; i++){
-		for(j = 0; j < columns; j++){
-			seen[i][j] = false;
-		}
-	}
+	memset(seen, false, sizeof(seen));
 	
 	for(i = 0; i < rows * columns; i++){
 		res.emplace_back(matrix[r][c]);
