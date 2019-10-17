@@ -18,6 +18,7 @@ int main(void){
 	Node* h2 = new Node();
 	Node* e21 = new Node();
 	
+	/*
 	//Case 1: intersection exists
 	//1 -> 2 -> 4 -> NULL
 	
@@ -38,14 +39,12 @@ int main(void){
 	e21->val = 3;
 	e21->next = e12; //Intersection in node with value 4
 	
-	/*	1 -> 2 
+	 *	1 -> 2 
 	 * 			-> 4 -> NULL
 	 * 	1 -> 3 
-	 * 
-	 *
-	*/
+	 */
 	
-	/*
+	
 	//Case 2: no intersection
 	//1 -> 2 -> 4 -> NULL
 	
@@ -71,34 +70,31 @@ int main(void){
 	e22->val = 4;
 	e22->next = NULL;
 	
+	/*
 	 *	1 -> 2 -> 4 -> NULL
 	 * 	1 -> 3 -> 4 -> NULL 
 	 *
-	*/
+	 */
+
+	Node* p1 = h1;
+	Node* p2 = h2;
 	
-	vector<Node*> nodes;
-	
-	Node* aux = h1;
-	
-	while(aux != NULL){
-		nodes.emplace_back(aux);
-		aux = aux->next;
-	}
-	
-	aux = h2;
-	
-	bool exists = false;
-	
-	for(Node* n : nodes){
-		if(n == aux){
-			exists = true;
-			break;
+	while(p1 != p2){
+		if(p1 != NULL){
+			p1 = p1->next;
+		} else {
+			p1 = h2;
 		}
-		aux = aux->next;
+		
+		if(p2 != NULL){
+			p2 = p2->next;
+		} else {
+			p2 = h1;
+		}
 	}
 	
-	if(exists){
-		cout << aux->val << endl;
+	if(p1 != NULL){
+		cout << p1->val << endl;
 	} else {
 		cout << "NULL" << endl;
 	}
