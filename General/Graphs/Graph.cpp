@@ -1,64 +1,46 @@
 #include <iostream>
 #include <vector>
 
-#define LIMIT 300000
-
 using namespace std;
 
-bool visited[300010];
 
-int dest;
+//Function to add an edge in an undirected graph
+void addEdge(vector<int> adj[], int u, int v){
+	
+	adj[u].emplace_back(v);
+	adj[v].emplace_back(u);//Comment this line to construct a directed graph
+	
+} 
 
-bool ok;
-
-vector<int> adj[LIMIT];
-
-void dfs(int actual){
-	if(actual == dest){
-		ok = true;
-		return;
+//Function to print the adjacency list representation of graph
+void printGraph(vector<int> adj[], int nodes){
+	
+	for(int l = 0; l < nodes; l++){
+		cout << "Adjacency list of the vertex " << l << ": " << endl;
+		cout << "head";
+		for(int value : adj[l]){
+			cout << " --> " << value;
+		}
+		cout << endl;
 	}
 	
-	if(!visited[actual]){
-		for(int to : adj[actual]){
-			if(!visited[to]){
-				visited[to] = true;
-				dfs(to);
-			}
-		}
-	}
 }
 
 int main(void){
 	
-	int nodes, lines , g;
+	int nodes = 5;
 	
-	int u, v;
+	vector<int> adj[nodes];
 	
-	cin >> nodes >> lines;
+	addEdge(adj, 0, 1);
+	addEdge(adj, 0, 4);
+	addEdge(adj, 1, 2);
+	addEdge(adj, 1, 3);
+	addEdge(adj, 1, 4);
+	addEdge(adj, 2, 3);
+	addEdge(adj, 3, 4);
 	
-	for(int i = 0; i < lines; i++){
-		cin >> u >> v; 
-		
-		adj[u].emplace_back(v);
-		//adj[v].emplace_back(u);
-	}
-	
-	for(int i = 1; i <= nodes; i++){
-		for(auto x : adj[i]){
-			cout << endl << "Node " << i << " has " << x << " as contiguous element" << endl;
-		}
-	} 
-	
-	cin >> g >> dest;
-	
-	dfs(g);
-	
-	if(ok){
-		cout << "I can visit city " << dest << " starting from " << g << endl;
-	} else {
-		cout << "It could not" << endl;
-	}
+	printGraph(adj, nodes);
 	
 	return 0;
 }
